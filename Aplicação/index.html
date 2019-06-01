@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_lanc.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="msg" class="col-sm-6 offset-sm-3">
+    </div>
+    <header>
+        <div id="logo">
+            <img src="https://www.pucminas.br/Style%20Library/PUCMINAS/images/puc-img-brasao.png">
+        </div>
+        <div id="titulo">
+            <p class="titulo">SALDO POSITIVO</p>
+            <p class="subtitulo">Organizador Financeiro</p>
+        </div>
+    </header>
+    <section id="inicio">
+        <div id="login">
+            Já é cadastrado? Acesse sua conta!
+            <br>
+            <br>
+            <br>
+            <div class="row"></div>
+            <form id="form-login">
+                <label for="inputUser">Usuário: *</label>
+                <br>
+                <input type="text" id="inputUser" class="form-control" required>
+                <br>
+                <label for="inputPassword">Senha: *</label>
+                <br>
+                <input type="password" id="inputPassword" class="form-control" required>
+                <span class="link" onclick="recuperar()">Esqueci meu usuário/senha</span>
+                <br>
+                <br>
+                <input type="button" class="btn btn-success col-sm-12" id="btnlogar" onclick="acessar()" value="Acessar">
+                <br>
+                <br>
+                <br> Ainda não possui cadastro?
+                <br>
+                <span class="link" onclick="registrar()">Clique aqui</span> e cadastre-se, é rápido e fácil!
+            </form>
+        </div>
+        <div id="config" class="invisible">
+            Identificamos ser seu primeiro acesso.
+            <br>
+            <br>Para iniciar, precisamos cadastrar seu saldo inicial: ele será o marco inicial da sua base de dados.
+            <br>
+            <br>
+            <br>
+            <div class="row"></div>
+            <form id="form-config">
+                <label for="inputSaldo">Saldo: *</label>
+                <br>
+                <input type="number" id="inputSaldo" step="0.01" class="form-control" required placeholder="R$ 0,00">
+                <br>
+                <label for="inputDataSaldo">Data: *</label>
+                <br>
+                <input type="date" id="inputDataSaldo" class="form-control" required>
+                <br>
+                <br>
+                <input type="button" class="btn btn-success col-sm-12" id="btnContinuar" onclick="continuar()" value="Continuar">
+            </form>
+        </div>
+        <div id="esqueci" class="invisible">
+            Preencha os campos abaixo para recupesar seus dados de acesso
+            <br>
+            <br>
+            <div class="row"></div>
+            <form id="form-recupera">
+                <label for="inputLembraNome">Nome: *</label>
+                <br>
+                <input type="text" id="inputLembraNome" class="form-control" required>
+                <br>
+                <label for="inputLembraSobrenome">Sobrenome: *</label>
+                <br>
+                <input type="text" id="inputLembraSobrenome" class="form-control" required>
+                <br>
+                <label for="inputLembraEmail">E-mail: *</label>
+                <br>
+                <input type="email" id="inputLembraEmail" class="form-control" required>
+                <br>
+                <br>
+                <div id="flex">
+                    <input type="button" class="btn btn-danger col-sm-5" id="btnCancelar2" onclick="cancelar('esqueci')" value="Cancelar">
+                    <input type="button" class="btn btn-success col-sm-5" id="btnRecuperar" onclick="recuperaDados()" value="Prosseguir">
+                </div>
+            </form>
+        </div>
+        <div id="cadastro" class="invisible">
+            Preencha os campos abaixo para efetuar seu cadastro
+            <br>
+            <br>
+            <div class="row"></div>
+            <form id="form-cadastro">
+                <label for="inputName">Nome: *</label>
+                <br>
+                <input type="text" id="inputName" class="form-control" required>
+                <br>
+                <label for="inputLastName">Sobrenome: *</label>
+                <br>
+                <input type="text" id="inputLastName" class="form-control" required>
+                <br>
+                <label for="inputEmail">E-mail: *</label>
+                <br>
+                <input type="email" id="inputEmail" class="form-control" required>
+                <br>
+                <label for="inputUserCad">Usuário: *</label>
+                <br>
+                <input type="text" id="inputUserCad" class="form-control" required>
+                <br>
+                <label for="inputPasswordCad">Senha: *</label>
+                <br>
+                <input type="password" id="inputPasswordCad" class="form-control" required>
+                <br>
+                <br>
+                <div id="flex">
+                    <input type="button" class="btn btn-danger col-sm-5" id="btnCancelar" onclick="cancelar('cadastro')" value="Cancelar">
+                    <input type="button" class="btn btn-success col-sm-5" id="btnCadastrar" onclick="cadastrar()" value="Cadastrar">
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="conteudo" class="invisible">
+        <aside>
+            <span id="usuario"></span>
+            <input id="add" type="button" class="btn btn-primary" value="+" title="Lançar nova movimentação" onclick="trocaTelas()">
+            <!--<input id="export" type="button" class="btn btn-success" value="&#8681" title="Exportar dados" onclick="exportar()">-->
+            <input id="excluirConta" type="button" class="btn btn-dark" value="&#9762" title="Excluir conta" onclick="excluir()">
+            <input id="sair" type="button" class="btn btn-danger" value="X" title="Sair" onclick="logoff()">
+        </aside>
+        <div class="container">
+            <div class="row">
+                <ul class="col-sm-12">
+                    <li id="mesAnt" class="mes active" onclick="mesanterior()"><< Mês Anterior</li>
+                    <li id="atual" class="mes"></li>
+                    <li id="mesProx" class="mes direita active" onclick="proximomes()">Próximo Mês >></li>
+                </ul>
+            </div>
+            <div id="containerTable">
+                <table id="principal" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="id">#</th>
+                            <th class="data">VENCIMENTO</th>
+                            <th class="texto">HISTÓRICO</th>
+                            <th class="texto">COMPLEMENTO</th>
+                            <th class="data">REALIZADO</th>
+                            <th class="valor">ENTRADA</th>
+                            <th class="valor">SAÍDA</th>
+                            <th class="valor">SALDO</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-apps"></tbody>
+                </table>
+            </div>
+            <div id="novoLanc" class="invisible">
+                <form id="form-lancamento">
+                    <p class="cadlanc">CADASTRO DE LANÇAMENTOS</p>
+                    <div class="inside row">
+                        <div class="lanc col-sm-6">
+                            <label class="info" for="history">Histórico: * </label>
+                            <input required autofocus type="text" class="info form-control" id="history" name="historico" placeholder="Descrição da movimentação">
+                        </div>
+                        <div class="lanc col-sm-6">
+                            <label class="info" for="complement">Complemento: </label>
+                            <input type="text" class="info form-control" id="complement" name="complemento" placeholder="Informações complementares">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="inside row">
+                        <div class="lanc col-sm-4">
+                            <label for="value">Valor: *</label>
+                            <input required class="form-control" step="0.01" type="number" id="value" name="valor" placeholder="R$ 0,00">
+                        </div>
+                        <div class="lanc col-sm-4">
+                            <label id="dataVenc" for="date">Vencimento: *</label>
+                            <input required class="form-control" type="date" id="date" name="venc">
+                        </div>
+                        <div class="lanc col-sm-4">
+                            <label for="done">Realizado?
+                                <input id="check" type="checkbox" onchange="habilitaData(this.checked)">
+                            </label>
+                            <input type="date" class="form-control" id="done" disabled name="realizado">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="inside row">
+                        <div class="lanc col-sm-4">
+                            <p class="tipo">Tipo: * &nbsp</p>
+                            <div class="tipo">
+                                <input required id="entrada" type="radio" name="tipo" value="entrada">
+                                <label for="entrada">&nbspEntrada</Label>
+                                <br>
+                                <input id="saida" type="radio" name="tipo" value="Saída">
+                                <label for="saida">&nbspSaída</label>
+                            </div>
+                        </div>
+                        <div class="lanc col-sm-4">
+                            <input id="inputCancelar" class="btn btn-danger col-sm-12" type="reset" onclick="trocaTelas()" value="Cancelar">
+                            <input id="inputSalvar" class="btn btn-success col-sm-12" type="button" onclick="novoRegistro(0)" value="Salvar">
+                            <input id="inputAltera" class="btn btn-success col-sm-12" type="button" onclick="novoRegistro(2)" value="Salvar">
+                        </div>
+                        <div class="lanc col-sm-4">
+                            <input id="inputExcluir" class="btn btn-dark col-sm-12" type="button" onclick="novoRegistro(1)" value="Excluir">
+                            <input id="inputDuplicar" class="btn btn-primary col-sm-12" type="button" onclick="novoRegistro(4)" value="Duplicar">
+                            <input id="inputSalvaMais" class="btn btn-primary col-sm-12" type="button" onclick="novoRegistro(3)" value="Salvar e Cadastrar Novo">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="opaco" class="invisible" onclick="trocaTelas()"></div>
+        </div>
+    </section>
+    <footer>
+        <div id="footer">
+            <p class="developers">Desenvolvido por:</p>
+            <ul class="developers">
+                <li>Filipe Iannarelli</li>
+                <li>Gabriel Vinicius</li>
+                <li>Lucas Henrique</li>
+                <li>Meriélem Almeida</li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="database.js"></script>
+    <script src="dbmeses.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

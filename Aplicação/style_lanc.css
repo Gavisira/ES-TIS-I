@@ -1,0 +1,112 @@
+#novoLanc {
+    border: 2px solid rgb(0, 185, 255);
+    border-radius: 15px;
+    overflow: auto;
+    top: 20%;
+    left: 15%;
+    height: 57%;
+    width: 68%;
+    box-shadow: 5px 5px 10px rgba(34, 25, 25, 0.4);
+    border-collapse: separate;
+    background: white;
+    padding: 30px;
+    position: fixed !important;
+    top: 20%;
+    z-index: 100002;
+    transition: all 0.25s linear;
+}
+
+div#opaco {
+    position: fixed !important;
+    opacity: 0.8;
+    top: 0px;
+    left: 0px;
+    height: 130%;
+    width: 100%;
+    z-index: 100001;
+    background-color: white;
+    transition: all 0.25s linear;
+}
+
+#quadrolanc {
+    margin: auto;
+    padding: 0px 0px;
+    width: 700px;
+    max-width: 100%;
+    min-width: 600px;
+}
+
+.cadlanc {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+input.info {
+    float: right;
+}
+
+div.divs {
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.inside {
+    margin: 0 !important;
+}
+
+div.lanc {
+    overflow: auto;
+    padding: 5px 3px;
+}
+
+div.terco {
+    display: inline;
+    width: 30%;
+}
+
+div.bottom {
+    width: 40%;
+}
+
+div.buttons {
+    width: 55%;
+    text-align: right;
+    display: flex;
+    float: right;
+    justify-content: flex-end;
+    max-width: 100%;
+    flex: auto;
+}
+
+#inputCancelar {
+    margin-bottom: 10px;
+}
+
+#inputSalvaMais {
+    min-height: 86px;
+}
+
+#inputExcluir {
+    display: none;
+    margin-bottom: 10px;
+}
+
+#inputAltera {
+    display: none;
+}
+
+#inputDuplicar {
+    display: none;
+}
+
+p.tipo, div.tipo {
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#form-lancamento .btn {
+    white-space: normal;
+}

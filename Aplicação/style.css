@@ -1,0 +1,228 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightblue !important;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    overflow: auto;
+    background-color: white;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 0;
+}
+
+#msg {
+    margin-top: 10px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    text-align: center;
+}
+
+aside {
+    display: flex;
+    float: left;
+    width: 35px;
+    flex-wrap: wrap;
+    z-index: 10001;
+}
+
+aside input {
+    font-weight: bold !important;
+    background-color: white;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px black;
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    line-height: initial !important;
+    font-size: initial !important;
+    cursor: pointer;
+    padding: 0 !important;
+}
+
+input#excluirConta {
+    color: yellow;
+}
+
+div.container {
+    padding-top: 50px;
+    max-width: 1100px;
+}
+
+#usuario {
+    font-style: italic;
+    font-weight: bold;
+    margin-left: 5px;
+    white-space: nowrap;
+}
+
+#login, #cadastro, #esqueci, #config {
+    position: initial;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid rgb(0,185,255);
+    margin-top: 50px;
+    padding: 30px 50px;
+    text-align: center;
+    max-width: 400px;
+    margin: auto;
+    justify-content: space-between;
+}
+
+div#flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.invisible {
+    display: none;
+}
+
+form#form-login, form#form-cadastro, form#form-recupera, form#form-config {
+    text-align: left;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding-right: 5px;
+
+}
+
+#footer {
+    padding: 0;
+    font-size: 10pt;
+    font-style: italic;
+    text-align: right;
+}
+
+.titulo {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 28pt;
+    margin: 0;
+}
+
+.subtitulo {
+    font-weight: bold;
+    font-size: 15pt;
+    margin: 0;
+}
+
+div#logo, div#titulo {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 50px;
+}
+
+section#inicio {
+    padding: 50px 0;
+}
+
+#principal {
+    background-color: white;
+    margin-bottom: 0;
+}
+
+thead th {
+    border-top: 2px solid lightblue !important;
+    border-bottom   : 2px solid lightblue !important;
+}
+
+div#containerTable {
+    overflow-x: auto;
+}
+
+td, th {
+    padding: 5px 10px !important;
+    vertical-align: middle !important;
+    border: 0 !important;
+}
+
+th {
+    border-bottom: 2px solid lightblue;
+    text-align: center !important;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #dae0e5;
+}
+
+.valor {
+    text-align: right;
+    width: 100px;
+}
+
+.id {
+    text-align: center;
+    width: 10px;
+}
+
+.data {
+    text-align: center;
+    width: 100px;
+}
+
+section li {
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    line-height: 30pt;
+}
+
+p.developers {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    font-weight: bold;
+    margin-bottom: 0 !important;
+}
+
+li.active:hover {
+    background-color: white;
+}
+
+.active {
+    background-color: lightblue;
+    font-size: 10pt;
+}
+
+.pos {
+    color: blue;
+}
+
+.neg {
+    color: red;
+}
+
+.mes {
+    width: 15%;
+}
+
+#atual {
+    width: 70%;
+    text-align: center;
+}
+
+.direita {
+    float: right;
+}
+
+span.link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.frente {
+    z-index: 100002;
+}
